@@ -1,0 +1,143 @@
+.Container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Header {
+    width: 100%;
+    height: 50px;
+}
+
+.Logo {
+    position: absolute;
+    width: 18%;
+    top: -60px;
+    z-index: 1;
+    pointer-events: none;
+    background-color: transparent;
+}
+
+.Imagem_Principal2 {
+    position: absolute;
+    width: 33%;
+    left: 9%;
+    pointer-events: none;
+    background-color: transparent;
+    z-index: 1;
+}
+
+.Div_Forms {
+    margin-left: 27%;
+}
+
+h3 {
+    margin-left: 26%;
+}
+
+.Container form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Container form .InputContainer {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.Container form .InputContainer label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    margin-bottom: 10px;
+}
+
+.Container form .InputContainer input {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    width: 480px;
+    height: 30px;
+    border: 1px #118FB8;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    background-color: #F1F1F1;
+}
+
+.Container form .Button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    width: 300px;
+    height: 48px;
+    background-color: #73c2ab;
+    border-radius: 12px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+}
+
+.Container form .Button:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.Bolinha {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #c45c5c;
+    border-radius: 100%;
+    top: 30%;
+    left: -7%;
+}
+
+.Bolinha1 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #73c2ab;
+    border-radius: 100%;
+    top: 90%;
+    left: 10%;
+}
+
+.Bolinha2 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #c7bcba;
+    border-radius: 100%;
+    top: 95%;
+    left: 50%;
+}
+
+.Bolinha3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #4d5e74;
+    border-radius: 100%;
+    top: 85%;
+    left: 70%;
+}
+
+.Bolinha4 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: #118FB8;
+    border-radius: 100%;
+    top: 15%;
+    left: 95%;
+}
