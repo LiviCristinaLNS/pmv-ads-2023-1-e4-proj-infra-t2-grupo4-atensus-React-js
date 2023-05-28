@@ -28,13 +28,15 @@ const DadosUsuario = ({ route }) => {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
+    console.log(event)
     setFormData({ ...formData, [name]: value });
   };
 
  
-  console.log( cpf );
-   console.log( senha );
-  
+   //console.log( cpf );
+   //console.log( senha );
+
+   
  
   const handleSubmit = () => {
     
@@ -46,7 +48,7 @@ const DadosUsuario = ({ route }) => {
     })
     .then(response => response.json())
     .then(data => {
-     console.log(document.location)
+     //console.log(document.location)
 
       document.getElementById("Nome").value = data.nome;
       document.getElementById("Idade").value = data.idade;
@@ -54,14 +56,35 @@ const DadosUsuario = ({ route }) => {
       document.getElementById("Peso").value = data.peso;
       document.getElementById("Endereco").value = data.endereco;
       document.getElementById("CPF").value = data.cpf;
-       
-     })
+      
+
+    })
+
     .catch(error => {
-      console.error(error);
+      console.error('Erro na requisição GET:', error);
     });
   };
-   
- 
+
+
+    const Atualizar = () => {
+      console.log(formData)
+      /*fetch('https://localhost:7160/api/Pacientes/atualizar', {
+       method: 'PUT',
+       body: JSON.stringify(formData),
+       headers:
+       {
+         'Content-Type': 'application/json'
+       }
+     })
+     .then(response => response.json())
+     .then(data => {
+      })
+
+      .catch(error => {
+        console.error('Erro na requisição PUT:', error);
+      });*/
+    }
+
   return (
     
     <div className="Container-Cadastro">
@@ -132,9 +155,23 @@ const DadosUsuario = ({ route }) => {
             onChange={handleInputChange}
             /> 
         </div>
+        <div className='Input-Cadastro'>
+          <label htmlFor="Senha">Senha</label>
+          <input
+            type="text"
+            name="Senha"
+            id="Senha"
+            placeholder="Senha"
+            onChange={handleInputChange}
+            /> 
+        </div>
 
+        <button className="Button" onClick={() =>  Atualizar()}>Atualizar dados</button>
         
       </form>
+
+      
+
       <div className="Bolinha" />
       <div className="Bolinha1" />
       <div className="Bolinha2" />
