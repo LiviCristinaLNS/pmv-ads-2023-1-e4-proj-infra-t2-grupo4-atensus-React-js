@@ -3,6 +3,7 @@ import './DadosUsuario.css';
 import LogoAtensus from '../../assets/logo atensus.png'
 import MedicaCadastro from '../../assets/medicaCadastro.png';
 import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 
 
@@ -14,8 +15,8 @@ const DadosUsuario = ({ route }) => {
   const [Nome, setNome] = useState('');
   const [Idade, setIdade] = useState('');
  
-  // const cpf = location.state.cpf;
-//  const senha = location.state.senha;
+  const cpf = location.state.cpf;
+const senha = location.state.senha;
 
   const [formData, setFormData] = useState({
 
@@ -42,9 +43,7 @@ const DadosUsuario = ({ route }) => {
  
   const handleSubmit = () => {
     
-    //fetch(`https://localhost:7160/api/Pacientes/login/${cpf}/${senha}`, {
-
-      fetch(`https://localhost:7160/api/Pacientes/login/33333333333/33333333333`, {
+    fetch(`https://localhost:7160/api/Pacientes/login/${cpf}/${senha}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -61,7 +60,7 @@ const DadosUsuario = ({ route }) => {
       document.getElementById("Endereco").value = data.endereco;
       document.getElementById("CPF").value = data.cpf;
       document.getElementById("Senha").value = data.senha;
-
+      document.getElementById("Sintomas").value = data.sintomas;
     })
 
     .catch(error => {
@@ -79,27 +78,20 @@ const DadosUsuario = ({ route }) => {
     formData.Endereco =    document.getElementById("Endereco").value  
     formData.CPF =    document.getElementById("CPF").value  
     formData.Senha =    document.getElementById("Senha").value
+    formData.Sintomas= document.getElementById("Sintomas").value
 
-    console.log(formData)
+    console.log(formData);
 
-  //   fetch('https://localhost:7160/api/Pacientes/atualizar', {
-  //    method: 'PUT',
-  //    body: JSON.stringify(formData),
-  //    headers:
-  //    {
-  //      'Content-Type': 'application/json'
-  //    }
-  //  })
-  //  .then(response => response.json())
-  //  .then(data => {
-
-  //  // console.log(formData);
-
-  //   })
-  //   .catch(error => {
-  //     console.error('Erro na requisição PUT:', error);
-  //   });
+    axios.put('https://localhost:7160/api/Pacientes/atualizar', formData)
+    .then(response => {
+      console.log(' oi ');
+    })
+    .catch(error => {
+      console.log(error);
+      // Lógica para lidar com erros de requisição
+    });
   }
+    
 
   return (
     
@@ -162,6 +154,7 @@ const DadosUsuario = ({ route }) => {
             onChange={handleInputChange}
           />
         </div>
+
         <div className='Input-Cadastro'>
           <label htmlFor="CPF">CPF</label>
           <input
@@ -183,6 +176,17 @@ const DadosUsuario = ({ route }) => {
             /> 
         </div>
         
+        <div className='Input-Cadastro'>
+          <label htmlFor="Sintomas">Sintomas</label>
+          <input
+            type="text"
+            name="Sintomas"
+            id="Sintomas"
+            placeholder="Sintomas"
+            onChange={handleInputChange}
+          />
+        </div>
+
       </form>
 
 
