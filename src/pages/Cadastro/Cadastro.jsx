@@ -15,6 +15,7 @@ const Cadastro = () => {
     CPF: '',
     Senha: ''
   });
+ 
 
   const navigate = useNavigate();
 
@@ -68,6 +69,7 @@ const Cadastro = () => {
             type="text"
             name="Idade"
             id="Idade"
+            
             placeholder="Idade"
             onChange={handleInputChange}
           />

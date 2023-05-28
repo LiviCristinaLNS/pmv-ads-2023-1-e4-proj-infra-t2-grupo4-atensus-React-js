@@ -11,9 +11,11 @@ const DadosUsuario = ({ route }) => {
   var location = useLocation();
 
 
+  const [Nome, setNome] = useState('');
+  const [Idade, setIdade] = useState('');
  
-  const cpf = location.state.cpf;
-  const senha = location.state.senha;
+  // const cpf = location.state.cpf;
+//  const senha = location.state.senha;
 
   const [formData, setFormData] = useState({
 
@@ -40,7 +42,9 @@ const DadosUsuario = ({ route }) => {
  
   const handleSubmit = () => {
     
-    fetch(`https://localhost:7160/api/Pacientes/login/${cpf}/${senha}`, {
+    //fetch(`https://localhost:7160/api/Pacientes/login/${cpf}/${senha}`, {
+
+      fetch(`https://localhost:7160/api/Pacientes/login/33333333333/33333333333`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -56,7 +60,7 @@ const DadosUsuario = ({ route }) => {
       document.getElementById("Peso").value = data.peso;
       document.getElementById("Endereco").value = data.endereco;
       document.getElementById("CPF").value = data.cpf;
-      
+      document.getElementById("Senha").value = data.senha;
 
     })
 
@@ -66,24 +70,36 @@ const DadosUsuario = ({ route }) => {
   };
 
 
-    const Atualizar = () => {
-      console.log(formData)
-      /*fetch('https://localhost:7160/api/Pacientes/atualizar', {
-       method: 'PUT',
-       body: JSON.stringify(formData),
-       headers:
-       {
-         'Content-Type': 'application/json'
-       }
-     })
-     .then(response => response.json())
-     .then(data => {
-      })
 
-      .catch(error => {
-        console.error('Erro na requisição PUT:', error);
-      });*/
-    }
+  const Atualizar = () => {
+    formData.Nome =    document.getElementById("Nome").value  
+    formData.Idade =    document.getElementById("Idade").value  
+    formData.Altura =    document.getElementById("Altura").value  
+    formData.Peso =    document.getElementById("Peso").value  
+    formData.Endereco =    document.getElementById("Endereco").value  
+    formData.CPF =    document.getElementById("CPF").value  
+    formData.Senha =    document.getElementById("Senha").value
+
+    console.log(formData)
+
+  //   fetch('https://localhost:7160/api/Pacientes/atualizar', {
+  //    method: 'PUT',
+  //    body: JSON.stringify(formData),
+  //    headers:
+  //    {
+  //      'Content-Type': 'application/json'
+  //    }
+  //  })
+  //  .then(response => response.json())
+  //  .then(data => {
+
+  //  // console.log(formData);
+
+  //   })
+  //   .catch(error => {
+  //     console.error('Erro na requisição PUT:', error);
+  //   });
+  }
 
   return (
     
@@ -100,7 +116,7 @@ const DadosUsuario = ({ route }) => {
             type="text"
             name="Nome"
             id="Nome"
-           
+            value={Nome}
             placeholder="Nome Completo"
             onChange={handleInputChange}
           />
@@ -111,6 +127,7 @@ const DadosUsuario = ({ route }) => {
             type="text"
             name="Idade"
             id="Idade"
+            value={Idade}
             placeholder="Idade"
             onChange={handleInputChange}
           />
@@ -165,11 +182,11 @@ const DadosUsuario = ({ route }) => {
             onChange={handleInputChange}
             /> 
         </div>
-
-        <button className="Button" onClick={() =>  Atualizar()}>Atualizar dados</button>
         
       </form>
 
+
+       <button className="Button" onClick={() =>  Atualizar()}>Atualizar dados</button>
       
 
       <div className="Bolinha" />
