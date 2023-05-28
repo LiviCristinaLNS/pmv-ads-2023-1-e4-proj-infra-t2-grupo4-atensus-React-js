@@ -68,8 +68,6 @@ const senha = location.state.senha;
     });
   };
 
-
-
   const Atualizar = () => {
     formData.Nome =    document.getElementById("Nome").value  
     formData.Idade =    document.getElementById("Idade").value  
