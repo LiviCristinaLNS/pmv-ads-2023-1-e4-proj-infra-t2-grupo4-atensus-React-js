@@ -16,7 +16,7 @@ const DadosUsuario = ({ route }) => {
   const [Idade, setIdade] = useState('');
  
   const cpf = location.state.cpf;
-const senha = location.state.senha;
+  const senha = location.state.senha;
 
   const [formData, setFormData] = useState({
 
@@ -45,8 +45,6 @@ const senha = location.state.senha;
     })
     .then(response => response.json())
     .then(data => {
-      
-     //console.log(document.location)
 
       document.getElementById("Nome").value = data.nome;
       document.getElementById("Idade").value = data.idade;
