@@ -75,11 +75,10 @@ const DadosUsuario = ({ route }) => {
 
     axios.put('https://localhost:7160/api/Pacientes/atualizar', formData)
     .then(response => {
-      console.log(' oi ');
+      console.log( 'Deu certo');
     })
     .catch(error => {
       console.log(error);
-      // Lógica para lidar com erros de requisição
     });
   }
    
