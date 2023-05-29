@@ -5,13 +5,9 @@ import MedicaCadastro from '../../assets/medicaCadastro.png';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-
-
 const DadosUsuario = ({ route }) => {
 
   var location = useLocation();
-
-
   const [Nome, setNome] = useState('');
   const [Idade, setIdade] = useState('');
  
@@ -61,8 +57,6 @@ const DadosUsuario = ({ route }) => {
     });
   };
 
-  
-
   const Atualizar = () => {
     formData.Nome =    document.getElementById("Nome").value  
     formData.Idade =    document.getElementById("Idade").value  
@@ -73,8 +67,6 @@ const DadosUsuario = ({ route }) => {
     formData.Senha =    document.getElementById("Senha").value
     formData.Sintomas= document.getElementById("Sintomas").value
 
-    console.log(formData);
-
     axios.put('https://localhost:7160/api/Pacientes/atualizar', formData)
     .then(response => {
       console.log( 'Deu certo');
@@ -84,7 +76,6 @@ const DadosUsuario = ({ route }) => {
     });
   }
    
-
   return (
     
     <div className="Container-Cadastro">
