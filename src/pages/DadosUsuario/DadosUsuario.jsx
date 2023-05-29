@@ -34,12 +34,6 @@ const senha = location.state.senha;
     console.log(event)
     setFormData({ ...formData, [name]: value });
   };
-
- 
-   //console.log( cpf );
-   //console.log( senha );
-
-   
  
   const handleSubmit = () => {
     
@@ -89,7 +83,7 @@ const senha = location.state.senha;
       // Lógica para lidar com erros de requisição
     });
   }
-    
+   
 
   return (
     
