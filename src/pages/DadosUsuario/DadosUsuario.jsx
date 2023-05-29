@@ -45,6 +45,7 @@ const senha = location.state.senha;
     })
     .then(response => response.json())
     .then(data => {
+      
      //console.log(document.location)
 
       document.getElementById("Nome").value = data.nome;
