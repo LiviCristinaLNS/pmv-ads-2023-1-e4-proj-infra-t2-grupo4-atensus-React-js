@@ -61,6 +61,8 @@ const DadosUsuario = ({ route }) => {
     });
   };
 
+  
+
   const Atualizar = () => {
     formData.Nome =    document.getElementById("Nome").value  
     formData.Idade =    document.getElementById("Idade").value  
